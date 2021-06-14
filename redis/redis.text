@@ -1,0 +1,12 @@
+初始info memory
+分析上述不同 value 大小下，平均每个 key 的占用内存空间
+新增10 增加60字节, key占用了50字节
+新增20 增加70字节, key占用了50字节
+新增50 增加104字节, key占用了54字节
+新增100 增加160字节, key占用了60字节
+新增200 增加272字节, key占用了72字节
+新增1k 1072字节, key占用了72字节
+新增5k失败, 提示MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.
+
+发现在value字节比较少的情况下, key的内存占用比较小
+之后随着value字节占用的增加,key也同步增加内存占用
